@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <h1 style="text-align:center">Predict the activity performed by the User based on Wireless Sensor Network (WSN) Devices</h1>
+<!--    <img src="{{url_for('static', filename='SensorPlacement.png')}}" align="left", width="400px" height="400px"/>-->
+<div class="content">
+    <br><br>
+    <div class="form">
+        <form action="/predict" method="POST">
+            <input type="number" name="time" id="time" placeholder="time(ms)" step="any">
+            <input type="number" name="avg_rss12" id="avg_rss12" placeholder="avg_rss12" step="any">
+            <input type="number" name="var_rss12" id="var_rss12" placeholder="var_rss12" step="any">
+            <input type="number" name="avg_rss13" id="avg_rss13" placeholder="avg_rss1" step="any">
+            <input type="number" name="var_rss13" id="var_rss13" placeholder="var_rss13" step="any">
+            <input type="number" name="avg_rss23" id="avg_rss23" placeholder="avg_rss23" step="any">
+            <input type="number" name="var_rss23" id="var_rss23" placeholder="var_rss23" step="any">
+            <select name="algo" id="algo">
+                <option value="default">Default Algorithm</option>
+  <option value="liblinear">LibLinear Algorithm</option>
+
+</select>
+            <input type="submit" value="Predict">
+
+
+        </form>
+    </div>
+    <br>
+</div>
+<div style="text-align:center">
+<div style="color:black">
+    avg- Mean<br>
+var- Standard Deviation<br>
+rss12- RSS (sampled at 20 Hz) Chest-Right Ankle<br>
+rss13- RSS (sampled at 20 Hz) Chest-Left Ankle<br>
+rss23- RSS (sampled at 20 Hz) Right Ankle-Left Ankle<br>
+rss -  Received Signal Strength (RSS) is a key method for locating objects in Wireless Sensor Networks (WSNs)<br>
+ </div>
+</div></div>
+{% endblock %}

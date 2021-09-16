@@ -33,7 +33,7 @@ def index():
             loaded_model = pickle.load(open(filename, 'rb')) # loading the model file from the storage
             # predictions using the loaded model file
             prediction=loaded_model.predict([[time,avg_rss12,var_rss12,avg_rss13,var_rss13,avg_rss23,var_rss23]])
-            print('prediction is', prediction)
+            # print('prediction is', prediction)
             # showing the prediction results in a UI
             return render_template('results.html',prediction=prediction[0])
         except Exception as e:
